@@ -1,4 +1,16 @@
 PageApi::Application.routes.draw do
+  namespace (:api) do
+    resources :pages do
+      collection do
+        get 'unpublished'
+        get 'published'
+      end
+      member do
+        get 'total_words'
+        put 'publish'
+      end
+    end
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
